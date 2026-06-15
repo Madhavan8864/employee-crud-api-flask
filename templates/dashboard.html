@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<h1 style="margin-bottom:20px;">Dashboard</h1>
+
+<div class="grid">
+
+    <div class="stat-card">
+        <h2>{{ total_employees }}</h2>
+        <p>Total Employees</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>{{ active_employees }}</h2>
+        <p>Active Employees</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>{{ inactive_employees }}</h2>
+        <p>Inactive Employees</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>{{ departments }}</h2>
+        <p>Departments</p>
+    </div>
+
+</div>
+
+<br>
+
+<div class="card">
+
+    <h2>Recent Employees</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Employee Code</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Designation</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for emp in employees %}
+
+            <tr>
+                <td>{{ emp.id }}</td>
+                <td>{{ emp.employee_code }}</td>
+                <td>{{ emp.name }}</td>
+                <td>{{ emp.department }}</td>
+                <td>{{ emp.designation }}</td>
+                <td>{{ emp.status }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
